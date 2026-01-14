@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekke Local Biz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header class="main-header">
+    <nav class="nav-container">
+        <a href="#" class="logo">
+            <span class="logo-icon material-symbols-rounded">storefront</span>
+            Lekke<span>Local Biz</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#add-biz">List Business</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#" class="nav-btn">Sign In</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="menuToggle">
+            <span class="material-symbols-rounded">menu</span>
+        </button>
+    </nav>
+</header>
+
+    <section class="intro-section">
+    <div id="intro">
+        <h1>Welcome to <span>Lekke Local Biz</span></h1>
+        <p>
+            Lekke Local Biz is a platform built to power local business growth in South Africa.
+            We enable businesses to improve their visibility, reach new customers, and compete
+            effectively in their markets. By connecting communities with trusted local services,
+            we support inclusive economic growth across the country.
+        </p>
+    </div>
+
+    <div id="lekkeLocalBiz">
+        <img src="images/LLB.png" alt="Lekke Local Biz Logo">
+    </div>
+</section>
+
+	<section id="availible-biz">
+
+        <div>
+<h1>Find your new favourite</h1>
+        </div>
+        
+
+    <div class="container swiper">
+        <div class="swiper-wrapper card-list">
+
+            <div class="swiper-slide card-item">
+                <a href="#" class="card-link">
+                    <img src="images/pizza.png" class="card-image" alt="Pizza">
+                    <p class="badge">Pizza Hut</p>
+                    <h2 class="card-title">
+                        Fresh pizzas made daily with the best local ingredients.
+                    </h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </div>
+
+          
+            <div class="swiper-slide card-item">
+                <a href="#" class="card-link">
+                    <img src="images/1.png" class="card-image" alt="Business">
+                    <p class="badge">Amalisva</p>
+                    <h2 class="card-title">
+                        Authentic township flavours delivered straight to you.
+                    </h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </div>
+
+            <div class="swiper-slide card-item">
+                <a href="#" class="card-link">
+                    <img src="images/2.png" class="card-image" alt="Design">
+                    <p class="badge">Urban Design</p>
+                    <h2 class="card-title">
+                        Creative branding and modern graphic design solutions.
+                    </h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </div>
+
+            
+            <div class="swiper-slide card-item">
+                <a href="#" class="card-link">
+                    <img src="images/3.png" class="card-image" alt="Shop">
+                    <p class="badge">Online Shopping</p>
+                    <h2 class="card-title">
+                        Buy local products online and support small businesses.
+                    </h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </div>
+
+           
+            <div class="swiper-slide card-item">
+                <a href="#" class="card-link">
+                    <img src="images/4.png" class="card-image" alt="Simple">
+                    <p class="badge">Simple</p>
+                    <h2 class="card-title">
+                        Clean, simple and effective business solutions.
+                    </h2>
+                    <button class="card-button material-symbols-rounded">
+                        arrow_forward
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-slide-button swiper-button-prev"></div>
+        <div class="swiper-slide-button  swiper-button-next"></div>
+    </div>
+</section>
+
+<section class="search">
+    <button id="search" type="button">
+        <span class="material-symbols-rounded search-icon">search</span>
+        Search Biz
+    </button>
+</section>
+
+<section id="add-biz" class="add-biz">
+    <div class="bg-blob"></div>
+    
+    <div id="fill-in">
+        <h1>Grow Your Business With Us</h1>
+        <p>Join our local directory today. It only takes a minute to list your business and start reaching more customers in your community.</p>
+
+        <a href="NewBiz.html" class="submit-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+            <span class="material-symbols-rounded">add_business</span>
+            List Your Business
+        </a>
+    </div>
+
+    <div id="searchOverlay" class="search-overlay">
+    <div class="search-content">
+        <div class="search-header">
+            <input type="text" id="searchInput" placeholder="Search for a business name...">
+            <button id="closeSearch" class="material-symbols-rounded">close</button>
+        </div>
+        <div id="searchResults" class="results-grid">
+            </div>
+    </div>
+</div>
+
+   
+</section>
+
+<section class="show-biz-around" id="explore">
+    <h2>Businesses Around You</h2>
+    <div class="biz-controls">
+        <input type="text" id="searchInput" placeholder="Search by name...">
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="shop">Shop</option>
+            <option value="service">Service</option>
+        </select>
+    </div>
+    <div class="nearby-biz-container" id="nearbyContainer">
+        </div>
+</section>
+
+<div id="biz-modal" class="modal hidden">
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2 id="modal-name"></h2>
+        <span id="modal-category" class="modal-badge"></span>
+        <p id="modal-address"></p>
+        <div class="modal-actions">
+            <a href="#" id="modal-website">🌐 Site</a>
+            <a href="#" id="modal-maps">📍 Maps</a>
+            <a href="tel:000" id="modal-call">📞 Call</a>
+        </div>
+    </div>
+</div>
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <a href="#" class="logo">
+                <span class="logo-icon material-symbols-rounded">storefront</span>
+                Lekke<span>Local Biz</span>
+            </a>
+            <p>Empowering South African entrepreneurs to grow, connect, and thrive in their local communities.</p>
+            <div class="social-links">
+                <a href="#"><span class="material-symbols-rounded">facebook</span></a>
+                <a href="#"><span class="material-symbols-rounded">share_reviews</span></a>
+                <a href="#"><span class="material-symbols-rounded">group</span></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#add-biz">List Business</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#">Community Guidelines</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col newsletter-col">
+            <h3>Stay Updated</h3>
+            <p>Get the latest local biz news.</p>
+            <form class="footer-form">
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Join</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Lekke Local Biz. Built with ❤️ for South Africa.</p>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.ui.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

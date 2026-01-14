@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Your Biz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+
+    <nav style="padding: 20px;">
+        <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 8px;">
+            <span class="material-symbols-rounded">arrow_back</span> Back to Home
+        </a>
+    </nav>
+
+    <section id="add-biz" class="add-biz">
+        <div class="bg-blob"></div>
+        
+        <div id="fill-in">
+            <h2>Enter Your Business</h2>
+            <p>List your local business and reach more customers in your area.</p>
+
+            <form class="biz-form" id="businessForm">
+                <input type="text" id="bizName" placeholder="Business Name" required>
+                
+                <select id="bizCategory" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="shop">Shop</option>
+                    <option value="service">Service</option>
+                </select>
+
+                <div class="location-group">
+                    <button type="button" id="detectLocation" class="glass-btn-secondary">
+                        <span class="material-symbols-rounded">my_location</span>
+                        Use My Location
+                    </button>
+                    <input type="text" id="manualLocation" placeholder="Or enter location manually" required>
+                </div>
+
+                <div class="image-upload-wrapper">
+                    <label for="bizImage" class="upload-box">
+                        <span class="material-symbols-rounded">cloud_upload</span>
+                        <p>Click to upload business image</p>
+                        <input type="file" id="bizImage" accept="image/*" hidden>
+                    </label>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+
+                <textarea id="bizDesc" placeholder="Short Business Description" rows="4" required></textarea>
+
+                <button type="submit" class="submit-btn">
+                    <span class="material-symbols-rounded">add_business</span>
+                    Add Business
+                </button>
+            </form>
+        </div>
+
+        
+    </section>
+
+    <script src="Add.js"></script>
+</body>
+</html>
