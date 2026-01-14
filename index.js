@@ -1,4 +1,4 @@
-// Inside your DOMContentLoaded listener:
+document.addEventListener("DOMContentLoaded", () => {
 
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
@@ -290,28 +290,6 @@ const swiper2 = new Swiper('.swiper', {
 // Function to build the card HTML
 function renderBusinessCard(biz) {
     const slideHTML = `
-        <div class="swiper-slide card-item">
-            <a href="#" class="card-link">
-                <img src="${biz.image}" class="card-image" alt="${biz.name}">
-                <p class="badge">${biz.name}</p>
-                <h2 class="card-title">${biz.description}</h2>
-                <button class="card-button material-symbols-rounded">
-                    arrow_forward
-                </button>
-            </a>
-        </div>
-    `;
-    swiper.appendSlide(slideHTML);
-}
-
-// Load data when page opens
-document.addEventListener('DOMContentLoaded', () => {
-    const savedBusinesses = JSON.parse(localStorage.getItem('myBusinesses')) || [];
-    savedBusinesses.forEach(biz => renderBusinessCard(biz));
-});
-
-function renderBusinessCard(biz) {
-    const slideHTML = `
         <div class="swiper-slide card-item custom-biz-card" id="slide-${biz.id}">
             <button class="delete-btn" onclick="deleteBusiness(${biz.id})">
                 <span class="material-symbols-rounded">delete</span>
@@ -392,4 +370,7 @@ searchInput.addEventListener('input', (e) => {
         `;
         searchResults.appendChild(resultItem);
     });
+
+});
+
 });
