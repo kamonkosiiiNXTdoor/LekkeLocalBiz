@@ -7,6 +7,394 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
+<style>
+
+:root {
+    --primary: #1a3d36;
+    --primary-dark: #0d2420;
+    --secondary: #163832;
+
+    --accent: #2fa89a;
+    --accent-soft: #4fc3b1;
+
+    --bg-light: #f4f8f7;
+    --card-bg: #ffffff;
+
+    --text-dark: #0b1f1b;
+    --text-muted: #5f7f79;
+
+    --success: #3cb371;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+
+nav {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+nav a {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+
+.new-biz {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    padding: 90px 20px;
+    min-height: 80vh;
+}
+
+.package-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(26, 61, 54, 0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.package-card.popular {
+    border: 2px solid var(--accent);
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.package-card.popular:hover {
+    transform: scale(1.05) translateY(-14px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    color: var(--primary-dark);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+.card-header h3 {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 22px 0;
+    color: var(--primary);
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 1rem;
+}
+
+.features .material-symbols-rounded {
+    font-size: 1.2rem;
+    color: var(--success);
+}
+
+.features li.disabled {
+    color: #a0b6b1;
+    text-decoration: line-through;
+}
+
+.features li.disabled .material-symbols-rounded {
+    color: #c6d6d2;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+    border: none;
+    color: var(--primary-dark);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(47,168,154,0.45);
+}
+
+.main-footer {
+    background: linear-gradient(
+        135deg,
+        var(--primary-dark),
+        var(--secondary)
+    );
+    color: #cfe7e3;
+    padding: 80px 10% 30px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+
+.brand-col .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+}
+
+.brand-col .logo span {
+    color: var(--accent);
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.brand-col p {
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: grid;
+    place-items: center;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    color: var(--primary-dark);
+}
+
+
+.footer-col h3 {
+    color: white;
+    margin-bottom: 16px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #cfe7e3;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer-col a:hover {
+    color: var(--accent);
+}
+
+
+.footer-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.footer-form input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.footer-form button {
+    background: var(--accent);
+    color: var(--primary-dark);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.footer-form button:hover {
+    background: var(--accent-soft);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.85rem;
+}
+
+
+.bg-visual {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(
+        120deg,
+        #0d2420,
+        #163832,
+        #1a3d36
+    );
+    background-size: 300% 300%;
+    animation: gradientMove 18s ease infinite;
+}
+
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.blob {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    animation: float 18s infinite ease-in-out;
+}
+
+.blob-1 {
+    background: #2fa89a;
+    top: -100px;
+    left: -100px;
+}
+
+.blob-2 {
+    background: #4fc3b1;
+    bottom: -120px;
+    right: -80px;
+    animation-delay: 4s;
+}
+
+.package-card,
+nav,
+.main-footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+.blob-3 {
+    background: #1a3d36;
+    top: 40%;
+    left: 60%;
+    animation-delay: 8s;
+}
+
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -60px) scale(1.1); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+
+
+@media (max-width: 900px) {
+    .new-biz {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .package-card.popular {
+        transform: scale(1);
+    }
+}
+
+
+</style>
 <body>
 
     <nav style="padding: 20px;">
@@ -15,51 +403,107 @@
         </a>
     </nav>
 
-    <section id="add-biz" class="add-biz">
-        <div class="bg-blob"></div>
-        
-        <div id="fill-in">
-            <h2>Enter Your Business</h2>
-            <p>List your local business and reach more customers in your area.</p>
+   <section id="new-biz" class="new-biz">
+    <div id="R50-pack" class="package-card">
+        <div class="card-header">
+            <h3>Starter</h3>
+            <div class="price">R50<span>/mo</span></div>
+        </div>
+        <ul class="features">
+            <li><span class="material-symbols-rounded">check_circle</span> Basic Business Listing</li>
+            <li><span class="material-symbols-rounded">check_circle</span> 1 Location Tag</li>
+            <li><span class="material-symbols-rounded">check_circle</span> Community Support</li>
+            <li class="disabled"><span class="material-symbols-rounded">cancel</span> Featured Placement</li>
+        </ul>
+        <button class="btn-outline">Get Started</button>
+    </div>
 
-            <form class="biz-form" id="businessForm">
-                <input type="text" id="bizName" placeholder="Business Name" required>
-                
-                <select id="bizCategory" required>
-                    <option value="" disabled selected>Select Category</option>
-                    <option value="restaurant">Restaurant</option>
-                    <option value="shop">Shop</option>
-                    <option value="service">Service</option>
-                </select>
+    <div id="R150-pack" class="package-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <div class="card-header">
+            <h3>Professional</h3>
+            <div class="price">R150<span>/mo</span></div>
+        </div>
+        <ul class="features">
+            <li><span class="material-symbols-rounded">check_circle</span> Verified Badge</li>
+            <li><span class="material-symbols-rounded">check_circle</span> 5 Location Tags</li>
+            <li><span class="material-symbols-rounded">check_circle</span> Priority Email Support</li>
+            <li><span class="material-symbols-rounded">check_circle</span> Featured in Searches</li>
+        </ul>
+        <button class="btn-primary">Choose Pro</button>
+    </div>
 
-                <div class="location-group">
-                    <button type="button" id="detectLocation" class="glass-btn-secondary">
-                        <span class="material-symbols-rounded">my_location</span>
-                        Use My Location
-                    </button>
-                    <input type="text" id="manualLocation" placeholder="Or enter location manually" required>
-                </div>
+    <div id="R250-pack" class="package-card">
+        <div class="card-header">
+            <h3>Enterprise</h3>
+            <div class="price">R250<span>/mo</span></div>
+        </div>
+        <ul class="features">
+            <li><span class="material-symbols-rounded">check_circle</span> Unlimited Locations</li>
+            <li><span class="material-symbols-rounded">check_circle</span> Dedicated Manager</li>
+            <li><span class="material-symbols-rounded">check_circle</span> Analytics Dashboard</li>
+            <li><span class="material-symbols-rounded">check_circle</span> Homepage Hero Feature</li>
+        </ul>
+        <button class="btn-outline">Go Unlimited</button>
+    </div>
+</section>
 
-                <div class="image-upload-wrapper">
-                    <label for="bizImage" class="upload-box">
-                        <span class="material-symbols-rounded">cloud_upload</span>
-                        <p>Click to upload business image</p>
-                        <input type="file" id="bizImage" accept="image/*" hidden>
-                    </label>
-                    <div id="imagePreview" class="image-preview"></div>
-                </div>
+<div class="bg-visual">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+</div>
 
-                <textarea id="bizDesc" placeholder="Short Business Description" rows="4" required></textarea>
 
-                <button type="submit" class="submit-btn">
-                    <span class="material-symbols-rounded">add_business</span>
-                    Add Business
-                </button>
-            </form>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <a href="#" class="logo">
+                <span class="logo-icon material-symbols-rounded">storefront</span>
+                Lekke<span>Local Biz</span>
+            </a>
+            <p>Empowering South African entrepreneurs to grow, connect, and thrive in their local communities.</p>
+            <div class="social-links">
+                <a href="#"><span class="material-symbols-rounded">facebook</span></a>
+                <a href="#"><span class="material-symbols-rounded">share_reviews</span></a>
+                <a href="#"><span class="material-symbols-rounded">group</span></a>
+            </div>
         </div>
 
-        
-    </section>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#add-biz">List Business</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#">Community Guidelines</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col newsletter-col">
+            <h3>Stay Updated</h3>
+            <p>Get the latest local biz news.</p>
+            <form class="footer-form">
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Join</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 Lekke Local Biz. Built with ❤️ for South Africa.</p>
+    </div>
+</footer>
 
     <script src="Add.js"></script>
 </body>
